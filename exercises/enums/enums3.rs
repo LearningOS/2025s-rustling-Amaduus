@@ -12,7 +12,7 @@ enum Message {
     ChangeColor(u8, u8, u8),
     Move(Point),
     Quit,
-    Echo(String),
+    Echo(String), //绑定语法，这里相当于新变量
    
 }
 
