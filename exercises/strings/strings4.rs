@@ -22,6 +22,10 @@ fn main() {
     string(String::from("hi"));
     string("rust is fun!".to_owned());
     string("nice weather".into()); 
+    // let mut s = String::from("rust is fun!");
+    // s.push_str("I'm pushed");
+    // string(s);
+
     string(format!("Interpolation {}", "Station"));
     string_slice(&String::from("abc")[0..1]);
     string_slice("  hello there ".trim());

@@ -3,7 +3,7 @@
 // Execute `rustlings hint options2` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
+
 
 #[cfg(test)]
 mod tests {
@@ -20,7 +20,7 @@ mod tests {
 
     #[test]
     fn layered_option() {
-        let range = 10;
+        let  range = 10;
         let mut optional_integers: Vec<Option<i8>> = vec![None];
 
         for i in 1..(range + 1) {
@@ -32,8 +32,12 @@ mod tests {
         // TODO: make this a while let statement - remember that vector.pop also
         // adds another layer of Option<T>. You can stack `Option<T>`s into
         // while let and if let.
+
+        // 区分解构与赋值！！
         while let Some(integer) = optional_integers.pop() {
-            if  optional_integers[1]==None        {break};
+            if integer.is_none() {
+                break;
+            }
             assert_eq!(integer, Some(cursor));
             cursor -= 1;
         }
