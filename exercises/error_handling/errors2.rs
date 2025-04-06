@@ -26,11 +26,11 @@ use std::num::ParseIntError;
 pub fn total_cost(item_quantity: &str) -> Result<i32, ParseIntError> {
     let processing_fee = 1;
     let cost_per_item = 5;
-    let qty = item_quantity.parse::<i32>()?;
-    // let mut qty = match item_quantity.parse::<i32>() {
-    //     Ok(i32) => Ok(i32),
-    //     _ => Err(qty.unwrap_err()),
-    // };
+    let qty = item_quantity.parse::<i32>();
+    let mut qty = match qty {
+        Ok(i) => i,
+        Err(erro) => return  Err(erro), // 错误传播
+    };
     Ok(qty * cost_per_item + processing_fee)
 }
 

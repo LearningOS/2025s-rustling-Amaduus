@@ -46,14 +46,20 @@ impl State {
     fn process(&mut self, message: Message) {
         // TODO: create a match expression to process the different message
         // variants
-        if let Message::ChangeColor(r,b,g)=message{
-            self.change_color((r,b,g));
-        }else if let Message::Echo(s)=message{
-            self.echo(s);
-        }else if let Message::Move(p)=message{
-            self.move_position(p);
-        }else if let Message::Quit=message{
-            self.quit();
+        // if let Message::ChangeColor(r,b,g)=message{
+        //     self.change_color((r,b,g));
+        // }else if let Message::Echo(s)=message{
+        //     self.echo(s);
+        // }else if let Message::Move(p)=message{
+        //     self.move_position(p);
+        // }else if let Message::Quit=message{
+        //     self.quit();
+        // }
+        match message{
+            Message::ChangeColor(r,b,g) =>self.change_color((r,b,g)),
+            Message::Echo(s) => self.echo(s),
+            Message::Move(p) => self.move_position(p),
+            Message::Quit => self.quit(),
         }
         // Remember: When passing a tuple as a function argument, you'll need
         // extra parentheses: fn function((t, u, p, l, e))
