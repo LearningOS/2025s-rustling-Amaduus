@@ -6,7 +6,7 @@ enum PokerSuit {
     Diamonds(String),
     Hearts(Drink),
 }
-enum easy {
+enum Easy {
     A=1,
     B=2,
     C=3,
@@ -15,6 +15,9 @@ enum easy {
 struct Drink{
     name: String,
     price: f32,
+}
+fn add<T1:std::ops::Add<T2,Output = T1>, T2 > (a:T1, b:T2) -> T1 {
+    a + b
 }
 fn main() {
     let heart = PokerSuit::Hearts(Drink {
@@ -26,11 +29,14 @@ fn main() {
  //   let club2 = PokerSuit::Clubs2;
     let spade = PokerSuit::Spades(2);
 
-    let club2 = easy::A; 
+    let num1 = Easy::A; 
+    let num2 = Easy::B;
+    println!("{}",add(num2 as u32, num1 as u32)); // println!作为宏定义第一个参数必须是字符串字面量
+   // println!("{}",add(num1 as u32, diamond as String));
     print_suit(&heart);
     print_suit(&diamond);
     print_suit(&club);
-    println!("the value of club is {:?}", club2 as u8); //  value borrowed here after move
+    //println!("the value of club is {:?}", club2 as u8); //  value borrowed here after move
 }
 
 fn print_suit(card: &PokerSuit) {

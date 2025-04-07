@@ -33,7 +33,9 @@ impl OtherTrait for OtherStruct {}
 fn some_func(item: impl SomeTrait+ OtherTrait ) -> bool {
     item.some_function() && item.other_function()
 }
-
+fn trait_for_ret(item: impl SomeTrait ) -> impl OtherTrait {
+     OtherStruct {}
+}
 fn main() {
     some_func(SomeStruct {});
     some_func(OtherStruct {});
