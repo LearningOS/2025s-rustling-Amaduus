@@ -25,8 +25,11 @@ fn main() {
     }
 
     let mut results: Vec<u128> = vec![];
+    //let mut results: Vec<String> = vec![];
     for handle in handles {
         // TODO: a struct is returned from thread::spawn, can you use it?
+        let str:u128=handle.join().unwrap();
+        results.push(str);
     }
 
     if results.len() != 10 {
