@@ -1,6 +1,6 @@
 /*
 	queue
-	This question requires you to use queues to implement the functionality of the stac
+	This question requires you to use queues to implement the functionality of the stack
 */
 // I AM NOT DONE
 
@@ -57,6 +57,7 @@ pub struct myStack<T>
 	//TODO
 	q1:Queue<T>,
 	q2:Queue<T>
+
 }
 impl<T> myStack<T> {
     pub fn new() -> Self {
@@ -64,18 +65,40 @@ impl<T> myStack<T> {
 			//TODO
 			q1:Queue::<T>::new(),
 			q2:Queue::<T>::new()
+
         }
     }
     pub fn push(&mut self, elem: T) {
         //TODO
+        self.q1.enqueue(elem);
     }
     pub fn pop(&mut self) -> Result<T, &str> {
         //TODO
-		Err("Stack is empty")
+		if !self.q1.is_empty() {
+            let mut size = self.q1.size();
+            while size > 1 {
+                if let Ok(value) = self.q1.dequeue() {
+                    self.q2.enqueue(value);
+                }
+                size -= 1;
+            }
+            if let Ok(value) = self.q1.dequeue() {
+                std::mem::swap(&mut self.q1, &mut self.q2);
+                return Ok(value)
+            }
+            else {
+                return Err("Stack is empty")
+            }
+        }
+        else {Err("Stack is empty")}
     }
     pub fn is_empty(&self) -> bool {
 		//TODO
-        true
+        self.q1.is_empty() && self.q2.is_empty()
+    }
+    pub fn size(&self) -> usize {
+        //TODO
+        self.q1.size() + self.q2.size()
     }
 }
 

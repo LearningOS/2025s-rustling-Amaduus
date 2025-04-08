@@ -8,6 +8,7 @@
 // I AM NOT DONE
 
 mod macros {
+    #[macro_export]
     macro_rules! my_macro {
         () => {
             println!("Check out my macro!");
@@ -17,6 +18,6 @@ mod macros {
 
 
 fn main() {
-    use macros::my_macro;
+   // macros::my_macro!(); 宏不支持这种方式导入
     my_macro!();
 }
