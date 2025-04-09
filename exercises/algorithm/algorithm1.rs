@@ -4,6 +4,8 @@
 */
 // I AM NOT DONE
 
+use std::cmp::max_by;
+use std::f64::MAX;
 use std::fmt::{self, Display, Formatter};
 use std::ptr::NonNull;
 use std::vec::*;
@@ -72,11 +74,18 @@ impl<T> LinkedList<T> {
 	pub fn merge(list_a:LinkedList<T>,list_b:LinkedList<T>) -> Self
 	{
 		//TODO
-		Self {
+		let mut list_new = Self {
             length: 0,
             start: None,
             end: None,
-        }
+        };
+        let mut list_a = list_a;
+        let mut list_b = list_b;
+        let mut node_a = list_a.start;
+        let mut node_b = list_b.start;
+        
+    
+        list_new
 	}
 }
 

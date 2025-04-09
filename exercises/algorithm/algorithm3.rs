@@ -7,10 +7,17 @@
 
 fn sort<T:std::cmp::PartialOrd>(array: &mut [T]){
 	//TODO
-    for i in 0..array.len() {
-        for j in 0..array.len() - 1 - i {
-            if array[j] > array[j + 1] {
-                array.swap(j, j + 1);
+    // for i in 0..array.len() {
+    //     for j in 0..array.len() - 1 - i {
+    //         if array[j] > array[j + 1] {
+    //             array.swap(j, j + 1);
+    //         }
+    //     }
+    // }
+    for i in 0..array.len(){
+        for j in 0..=i{
+            if array[j] > array[i]{
+                array.swap(j, i);
             }
         }
     }

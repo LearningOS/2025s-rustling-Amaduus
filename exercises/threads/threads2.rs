@@ -32,6 +32,7 @@ fn main() {
     }
     for handle in handles {
         let tem = handle.join().unwrap();
+
         // TODO: Print the value of the JobStatus.jobs_completed. Did you notice
         // anything interesting in the output? Do you have to 'join' on all the
         // handles?
