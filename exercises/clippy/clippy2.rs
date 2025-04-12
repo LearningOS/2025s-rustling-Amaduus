@@ -9,4 +9,5 @@ fn main() {
         res += x;
     }
     println!("{}", res);
+    
 }
